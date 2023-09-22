@@ -1,2 +1,9 @@
-package be.digitalcity.spring.airport.models.entity;public class PersonStatus {
+package be.digitalcity.spring.airport.models.entity;
+
+public enum FidelityStatus {
+    NONE,
+    BASIC,
+    PREMIUM,
+    GOLD
+
 }

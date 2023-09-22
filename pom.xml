@@ -8,14 +8,18 @@
         <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>be.digitalcity.spring</groupId>
     <artifactId>digitalcity-airport</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>DigitalCityAirport</name>
     <description>DigitalCityAirport</description>
+
     <properties>
         <java.version>17</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -29,7 +33,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

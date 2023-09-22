@@ -1,4 +1,4 @@
-package be.digitalcity.spring.airport;
+package be.digitalcity.spring.airport.demo;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
