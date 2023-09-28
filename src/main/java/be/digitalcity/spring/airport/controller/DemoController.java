@@ -1,7 +1,7 @@
 package be.digitalcity.spring.airport.controller;
 
 import be.digitalcity.spring.airport.models.entity.Person;
-import be.digitalcity.spring.airport.service.HelloService;
+import be.digitalcity.spring.airport.service.impl.HelloService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

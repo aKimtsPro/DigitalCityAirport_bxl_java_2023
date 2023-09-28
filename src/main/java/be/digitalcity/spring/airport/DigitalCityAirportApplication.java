@@ -1,6 +1,5 @@
 package be.digitalcity.spring.airport;
 
-import be.digitalcity.spring.airport.service.HelloService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +21,11 @@ public class DigitalCityAirportApplication {
 //    @Bean(name = "helloService2")
 //    public HelloService helloService(){
 //        return new HelloService();
+//    }
+
+//    @Bean
+//    public Runnable runnable(){
+//        return () -> System.out.println("Hello World!");
 //    }
 
 }

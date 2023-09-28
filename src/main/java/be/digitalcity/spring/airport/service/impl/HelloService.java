@@ -1,4 +1,4 @@
-package be.digitalcity.spring.airport.service;
+package be.digitalcity.spring.airport.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
