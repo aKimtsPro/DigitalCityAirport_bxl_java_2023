@@ -2,69 +2,59 @@ package be.digitalcity.spring.airport.service.impl;
 
 import be.digitalcity.spring.airport.models.entity.FidelityStatus;
 import be.digitalcity.spring.airport.models.entity.Person;
+import be.digitalcity.spring.airport.repository.PersonRepository;
 import be.digitalcity.spring.airport.service.PersonService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class PersonServiceImpl implements PersonService {
 
+    private final PersonRepository personRepository;
 
-    private static long nextID = 1;
-    private final Map<Long, Person> personMap = new HashMap<>();
-
+    public PersonServiceImpl(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     @Override
     public List<Person> getAll() {
-        return new ArrayList<>(personMap.values());
+        return personRepository.findAll();
     }
 
     @Override
     public Person getOne(Long id) {
-        if( personMap.containsKey( id ) )
-            return personMap.get(id);
-
-        throw new IllegalArgumentException("no element with this id");
+        return personRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("no resource with this ID"));
     }
 
     @Override
     public void insert(Person entity) {
-        entity.setId(nextID++);
-        personMap.put( entity.getId(), entity );
+        entity.setId(0);
+        personRepository.save(entity);
     }
 
     @Override
     public void delete(Long id) {
-        if( !personMap.containsKey(id) )
-            throw new IllegalArgumentException("no element with this id");
-
-        personMap.remove(id);
+        personRepository.deleteById(id);
     }
 
     @Override
     public Person update(Long id, Person entity) {
-        if( !personMap.containsKey(id) )
-            throw new IllegalArgumentException("no element with this id");
+        if( !personRepository.existsById(id) )
+            throw new IllegalArgumentException("no resource with this ID");
 
         entity.setId(id);
-        personMap.put(entity.getId(), entity);
-        return entity;
+        return personRepository.save(entity);
     }
 
     @Override
     public List<Person> getWithNameContaining(String search) {
-        return personMap.values().stream()
-                .filter( e -> e.getFirstname().contains( search ) || e.getLastname().contains( search ) )
-                .toList();
+        return personRepository.findByNameContaining(search);
     }
 
     @Override
     public void updateFidelity(long id, FidelityStatus fidelity) {
-        Person toUpdate = this.getOne( id );
-        toUpdate.setFidelity( fidelity );
+        personRepository.updateFidelity(id, fidelity);
     }
 }
