@@ -2,7 +2,6 @@ package be.digitalcity.spring.airport.models.dto;
 
 import lombok.Data;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,10 +9,10 @@ import java.util.Map;
 @Data
 public class ErrorDTO {
 
-    private String uri;
-    private LocalDateTime receivedAt;
-    private int status;
-    private Map<String, Object> errors = new HashMap<>();
+    private final String uri;
+    private final LocalDateTime receivedAt;
+    private final int status;
+    private final Map<String, Object> errors;
 
     public ErrorDTO(String uri, LocalDateTime receivedAt, int status, Map<String, Object> errors) {
         this.uri = uri;

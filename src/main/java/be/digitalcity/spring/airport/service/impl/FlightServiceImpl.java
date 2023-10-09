@@ -1,6 +1,6 @@
 package be.digitalcity.spring.airport.service.impl;
 
-import be.digitalcity.spring.airport.exceptions.ResourceNotFoundException;
+import be.digitalcity.spring.airport.exceptions.*;
 import be.digitalcity.spring.airport.models.entity.Airplane;
 import be.digitalcity.spring.airport.models.entity.Flight;
 import be.digitalcity.spring.airport.models.entity.Pilot;
@@ -43,22 +43,23 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public Flight create(Flight toCreate) {
         if( !toCreate.getArrival().isAfter( toCreate.getDeparture() ) )
-            throw new IllegalArgumentException(); // TODO change to more specific
+            throw new FlightDepartureArrivalException(toCreate.getDeparture(), toCreate.getArrival());
 
-        if( toCreate.getDeparture().toLocalDate().isBefore(LocalDate.now().plusDays(10)) )
-            throw new IllegalArgumentException(); // TODO change to more specific
+        LocalDateTime minDate = LocalDateTime.now().plusDays(10);
+        if( toCreate.getDeparture().isBefore(minDate) )
+            throw new DateTooSoonException(toCreate.getDeparture(), minDate, "departure");
 
         if(Objects.equals(toCreate.getOrigin().getId(), toCreate.getDestination().getId()))
-            throw new IllegalArgumentException(); // TODO change to more specitfic
+            throw new FlightDestinationException();
 
         if(isPilotUnavailable(toCreate.getPilot(), toCreate.getDeparture(), toCreate.getArrival()))
-            throw new IllegalArgumentException(); // TODO change to more specitfic
+            throw new ResourceNotAvailableException(Pilot.class, toCreate.getPilot().getId(), "pilot is already booked for this time period");
 
         boolean noAirplaneConflict = toCreate.getAirplane().getFlights().stream()
                 .allMatch( flight ->  toCreate.getArrival().isBefore( flight.getDeparture() ) || flight.getArrival().isBefore(toCreate.getDeparture()));
 
         if( !noAirplaneConflict )
-            throw new IllegalArgumentException(); // TODO change to more specitfic
+            throw new ResourceNotAvailableException(Airplane.class, toCreate.getAirplane().getId(), "airplane already booked for this time period");
 
         return flightRepository.save( toCreate );
     }
@@ -71,7 +72,7 @@ public class FlightServiceImpl implements FlightService {
         Flight flight = getOne(id);
 
         if(isPilotUnavailable(newPilot, flight.getDeparture(), flight.getArrival()))
-            throw new IllegalArgumentException(); // TODO trouver plus specific
+            throw new ResourceNotAvailableException(Pilot.class, pilotId, "pilot is already booked for this time period");
 
         flight.setPilot( newPilot );
         flightRepository.save( flight );
@@ -85,7 +86,8 @@ public class FlightServiceImpl implements FlightService {
         Flight flight = getOne(id);
 
         if( isAirplaneUnavailable( newAirplane, flight.getDeparture(), flight.getArrival() ) )
-            throw new IllegalArgumentException(); // TODO trouver plus specific
+            throw new ResourceNotAvailableException(Airplane.class, airplaneId, "airplane already booked for this time period");
+
 
         flight.setAirplane(newAirplane);
         flightRepository.save(flight);
