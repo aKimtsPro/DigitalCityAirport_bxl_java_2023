@@ -22,13 +22,13 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     """)
     List<Person> findByNameContaining(String containing);
 
-    @Transactional
-    @Modifying
-    @Query("""
-        UPDATE Person p
-        SET p.fidelity = :fidelity
-        WHERE p.id = :id
-    """)
-    void updateFidelity(long id, FidelityStatus fidelity);
+//    @Transactional
+//    @Modifying
+//    @Query("""
+//        UPDATE Person p
+//        SET p.fidelity = :fidelity
+//        WHERE p.id = :id
+//    """)
+//    void updateFidelity(long id, FidelityStatus fidelity);
 
 }

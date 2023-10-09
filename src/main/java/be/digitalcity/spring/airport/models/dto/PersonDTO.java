@@ -20,7 +20,6 @@ public class PersonDTO {
         return PersonDTO.builder()
                 .id(person.getId())
                 .name(person.getFirstname() + ' ' + person.getLastname())
-                .fidelity(person.getFidelity())
                 .build();
     }
 

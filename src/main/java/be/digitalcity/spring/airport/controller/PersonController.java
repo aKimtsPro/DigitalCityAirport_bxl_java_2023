@@ -67,13 +67,13 @@ public class PersonController {
     }
 
     // PATCH - http://localhost:8080/person/1?fidelity=NONE
-    @PatchMapping(value = "/{id:^[0-9]+$}", params = "fidelity")
-    public ResponseEntity<?> updateFidelity(@PathVariable long id, @RequestParam FidelityStatus fidelity){
-        personService.updateFidelity(id, fidelity);
-
-        return ResponseEntity.noContent()
-                .build();
-    }
+//    @PatchMapping(value = "/{id:^[0-9]+$}", params = "fidelity")
+//    public ResponseEntity<?> updateFidelity(@PathVariable long id, @RequestParam FidelityStatus fidelity){
+//        personService.updateFidelity(id, fidelity);
+//
+//        return ResponseEntity.noContent()
+//                .build();
+//    }
 
     @DeleteMapping("/{id:^[0-9]+$}")
     public ResponseEntity<?> delete(@PathVariable long id){

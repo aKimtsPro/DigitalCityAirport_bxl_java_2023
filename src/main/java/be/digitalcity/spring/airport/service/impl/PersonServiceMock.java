@@ -61,9 +61,9 @@ public class PersonServiceMock implements PersonService {
                 .toList();
     }
 
-    @Override
-    public void updateFidelity(long id, FidelityStatus fidelity) {
-        Person toUpdate = this.getOne( id );
-        toUpdate.setFidelity( fidelity );
-    }
+//    @Override
+//    public void updateFidelity(long id, FidelityStatus fidelity) {
+//        Person toUpdate = this.getOne( id );
+//        toUpdate.setFidelity( fidelity );
+//    }
 }

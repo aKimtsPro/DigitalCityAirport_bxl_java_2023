@@ -10,6 +10,6 @@ public interface PersonService extends CrudService<Person, Long> {
 
     List<Person> getWithNameContaining(String search);
 
-    void updateFidelity(long id, FidelityStatus fidelity);
+//    void updateFidelity(long id, FidelityStatus fidelity);
 
 }

@@ -16,7 +16,6 @@ public class PersonForm {
         Person p = new Person();
         p.setFirstname(firstname);
         p.setLastname(lastname);
-        p.setFidelity(fidelity);
         return p;
 
     }

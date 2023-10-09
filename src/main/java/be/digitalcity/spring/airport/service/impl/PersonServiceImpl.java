@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public void insert(Person entity) {
-        entity.setId(0);
+        entity.setId(0L);
         personRepository.save(entity);
     }
 
@@ -53,8 +53,8 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.findByNameContaining(search);
     }
 
-    @Override
-    public void updateFidelity(long id, FidelityStatus fidelity) {
-        personRepository.updateFidelity(id, fidelity);
-    }
+//    @Override
+//    public void updateFidelity(long id, FidelityStatus fidelity) {
+//        personRepository.updateFidelity(id, fidelity);
+//    }
 }
