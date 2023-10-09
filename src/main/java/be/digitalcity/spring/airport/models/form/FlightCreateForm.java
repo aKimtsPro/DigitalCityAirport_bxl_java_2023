@@ -1,6 +1,7 @@
 package be.digitalcity.spring.airport.models.form;
 
 import be.digitalcity.spring.airport.models.entity.Flight;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 import java.time.LocalDateTime;
