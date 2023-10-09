@@ -8,6 +8,7 @@ import be.digitalcity.spring.airport.bl.service.AirplaneService;
 import be.digitalcity.spring.airport.bl.service.AirportService;
 import be.digitalcity.spring.airport.bl.service.FlightService;
 import be.digitalcity.spring.airport.bl.service.PilotService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +51,7 @@ public class FlightController {
 
     // POST - http://localhost:8080/flight
     @PostMapping
-    public ResponseEntity<FlightDTO> create(@RequestBody FlightCreateForm form){
+    public ResponseEntity<FlightDTO> create(@Valid @RequestBody FlightCreateForm form){
 
         Flight flight = form.toEntity();
 
