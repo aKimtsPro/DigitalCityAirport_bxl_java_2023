@@ -41,8 +41,6 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public Flight create(Flight toCreate) {
-        if( !toCreate.getArrival().isAfter( toCreate.getDeparture() ) )
-            throw new FlightDepartureArrivalException(toCreate.getDeparture(), toCreate.getArrival());
 
         LocalDateTime minDate = LocalDateTime.now().plusDays(10);
         if( toCreate.getDeparture().isBefore(minDate) )

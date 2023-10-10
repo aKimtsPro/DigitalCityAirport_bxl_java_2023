@@ -1,6 +1,7 @@
 package be.digitalcity.spring.airport.models.form;
 
 import be.digitalcity.spring.airport.models.entity.Flight;
+import be.digitalcity.spring.airport.validation.constraint.IsBefore;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -9,6 +10,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
+@IsBefore(beforeField = "departure", afterField = "arrival")
 public class FlightCreateForm {
 
     @Future

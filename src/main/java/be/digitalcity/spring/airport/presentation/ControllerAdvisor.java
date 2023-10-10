@@ -6,13 +6,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @ControllerAdvice
@@ -106,6 +113,49 @@ public class ControllerAdvisor {
                 .build();
 
         return ResponseEntity.status(status)
+                .body(body);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<?> handle(MethodArgumentNotValidException ex, HttpServletRequest request){
+        String uri = request.getRequestURI();
+        LocalDateTime receivedAt = LocalDateTime.now();
+        HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
+
+        Map<String, Object> body = new HashMap<>();
+
+        body.put("uri", uri);
+        body.put("receivedAt", receivedAt);
+        body.put("status", status);
+
+        Map<String, Object> errors = new HashMap<>();
+
+        List<Map<String, Object>> globalErrors = new ArrayList<>();
+
+        ex.getGlobalErrors().forEach( globalError -> {
+            Map<String, Object> error = new HashMap<>();
+            error.put( "message", globalError.getDefaultMessage() );
+            error.put( "codes", globalError.getCodes() );
+            globalErrors.add(error);
+        } );
+
+        errors.put( "global_validation_errors", globalErrors );
+        List<Map<String, Object>> fieldErrors = new ArrayList<>();
+
+        ex.getFieldErrors().forEach( fieldError -> {
+            Map<String, Object> error = new HashMap<>();
+            error.put( "message", fieldError.getDefaultMessage() );
+            error.put( "code", fieldError.getCode() );
+            error.put( "rejectedValue", fieldError.getRejectedValue());
+            error.put( "fieldName", fieldError.getField() );
+            fieldErrors.add(error);
+        } );
+
+        errors.put( "field_validation_errors", fieldErrors);
+
+        body.put("errors", errors);
+
+        return ResponseEntity.badRequest()
                 .body(body);
     }
 

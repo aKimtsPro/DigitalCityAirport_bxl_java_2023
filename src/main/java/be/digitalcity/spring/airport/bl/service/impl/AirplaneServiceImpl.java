@@ -6,6 +6,8 @@ import be.digitalcity.spring.airport.models.entity.Airplane;
 import be.digitalcity.spring.airport.dal.repository.AirplaneRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AirplaneServiceImpl implements AirplaneService {
 
@@ -19,5 +21,10 @@ public class AirplaneServiceImpl implements AirplaneService {
     public Airplane getOne(Long id) {
         return airplaneRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Airplane.class, id));
+    }
+
+    @Override
+    public List<Airplane> getWithSerialNumberStarts(String start) {
+        return airplaneRepository.findAllBySerialNumberStarts(start);
     }
 }

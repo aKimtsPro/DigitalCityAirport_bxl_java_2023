@@ -1,8 +1,8 @@
 package be.digitalcity.spring.airport.models.form;
 
+import be.digitalcity.spring.airport.validation.constraint.Even;
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,6 +17,7 @@ public class DemoForm {
 //    @NegativeOrZero
     @Min(0)
     @Max(10)
+    @Even
     private long number;
     private double numberDouble;
 

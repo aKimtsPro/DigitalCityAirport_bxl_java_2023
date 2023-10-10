@@ -5,13 +5,15 @@ import be.digitalcity.spring.airport.models.entity.Person;
 import be.digitalcity.spring.airport.validation.constraint.StartsWithMaj;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class PersonForm {
 
     @NotBlank
-    @StartsWithMaj
+    @StartsWithMaj(message = "firstname must have 5 capitals to start", numberCapital = 5)
+    @Size(min = 5)
     private String firstname;
     @NotBlank
     @StartsWithMaj

@@ -26,4 +26,7 @@ public class AirplaneType {
     @Column(name = "type_capacity", nullable = false)
     private int capacity;
 
+    @OneToOne(mappedBy = "airplaneType")
+    private License license;
+
 }
