@@ -4,6 +4,7 @@ import be.digitalcity.spring.airport.models.dto.PersonDTO;
 import be.digitalcity.spring.airport.models.entity.Person;
 import be.digitalcity.spring.airport.models.form.PersonForm;
 import be.digitalcity.spring.airport.bl.service.PersonService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +51,7 @@ public class PersonController {
     // POST - http://localhost:8080/person
     // POST - http://localhost:8080/person/add
     @PostMapping({"","/add"})
-    public ResponseEntity<?> add(@RequestBody PersonForm form){
+    public ResponseEntity<?> add(@Valid @RequestBody PersonForm form){
         personService.insert( form.toEntity() );
 
         return ResponseEntity.status(HttpStatus.CREATED)

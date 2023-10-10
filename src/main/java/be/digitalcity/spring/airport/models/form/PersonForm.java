@@ -2,12 +2,19 @@ package be.digitalcity.spring.airport.models.form;
 
 import be.digitalcity.spring.airport.models.entity.FidelityStatus;
 import be.digitalcity.spring.airport.models.entity.Person;
+import be.digitalcity.spring.airport.validation.constraint.StartsWithMaj;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class PersonForm {
 
+    @NotBlank
+    @StartsWithMaj
     private String firstname;
+    @NotBlank
+    @StartsWithMaj
     private String lastname;
     private FidelityStatus fidelity;
 

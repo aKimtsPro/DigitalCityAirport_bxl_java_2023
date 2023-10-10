@@ -3,6 +3,7 @@ package be.digitalcity.spring.airport.presentation;
 import be.digitalcity.spring.airport.bl.exceptions.*;
 import be.digitalcity.spring.airport.models.dto.ErrorDTO;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
