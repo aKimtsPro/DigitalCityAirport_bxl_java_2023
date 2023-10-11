@@ -1,12 +1,11 @@
 package be.digitalcity.spring.airport.bl.service.impl;
 
 import be.digitalcity.spring.airport.bl.exceptions.ResourceNotFoundException;
-import be.digitalcity.spring.airport.models.entity.Airport;
+import be.digitalcity.spring.airport.domain.entity.Airport;
 import be.digitalcity.spring.airport.dal.repository.AirportRepository;
 import be.digitalcity.spring.airport.bl.service.AirportService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 

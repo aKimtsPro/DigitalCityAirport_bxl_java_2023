@@ -2,7 +2,7 @@ package be.digitalcity.spring.airport.bl.service.impl;
 
 import be.digitalcity.spring.airport.bl.service.PilotService;
 import be.digitalcity.spring.airport.bl.exceptions.ResourceNotFoundException;
-import be.digitalcity.spring.airport.models.entity.Pilot;
+import be.digitalcity.spring.airport.domain.entity.Pilot;
 import be.digitalcity.spring.airport.dal.repository.PilotRepository;
 import org.springframework.stereotype.Service;
 

@@ -7,11 +7,23 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
+  sql:
+    init:
+      schema-locations: classpath:import.sql
+      mode: embedded
 
 springdoc:
   swagger-ui:
     path: /swagger
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          datasource:
+            init: debug

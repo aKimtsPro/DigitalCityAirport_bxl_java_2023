@@ -1,9 +1,9 @@
 package be.digitalcity.spring.airport.bl.service.impl;
 
 import be.digitalcity.spring.airport.bl.exceptions.ResourceNotFoundException;
-import be.digitalcity.spring.airport.models.entity.Flight;
-import be.digitalcity.spring.airport.models.entity.Passenger;
-import be.digitalcity.spring.airport.models.entity.Reservation;
+import be.digitalcity.spring.airport.domain.entity.Flight;
+import be.digitalcity.spring.airport.domain.entity.Passenger;
+import be.digitalcity.spring.airport.domain.entity.Reservation;
 import be.digitalcity.spring.airport.dal.repository.FlightRepository;
 import be.digitalcity.spring.airport.dal.repository.PassengerRepository;
 import be.digitalcity.spring.airport.dal.repository.ReservationRepository;

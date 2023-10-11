@@ -1,7 +1,7 @@
 package be.digitalcity.spring.airport.dal.repository;
 
-import be.digitalcity.spring.airport.models.FidelityStatus;
-import be.digitalcity.spring.airport.models.entity.Passenger;
+import be.digitalcity.spring.airport.domain.FidelityStatus;
+import be.digitalcity.spring.airport.domain.entity.Passenger;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

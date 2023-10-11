@@ -1,6 +1,6 @@
 package be.digitalcity.spring.airport.bl.service;
 
-import be.digitalcity.spring.airport.models.entity.Airport;
+import be.digitalcity.spring.airport.domain.entity.Airport;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

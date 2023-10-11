@@ -1,7 +1,5 @@
 package be.digitalcity.spring.airport.bl.service;
 
-import be.digitalcity.spring.airport.models.entity.Person;
-
 import java.util.List;
 
 public interface CrudService<T, TID> {

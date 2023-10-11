@@ -1,6 +1,6 @@
 package be.digitalcity.spring.airport.bl.service;
 
-import be.digitalcity.spring.airport.models.entity.Pilot;
+import be.digitalcity.spring.airport.domain.entity.Pilot;
 
 public interface PilotService {
 

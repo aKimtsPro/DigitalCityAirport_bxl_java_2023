@@ -1,6 +1,6 @@
 package be.digitalcity.spring.airport.dal.repository;
 
-import be.digitalcity.spring.airport.models.entity.Airplane;
+import be.digitalcity.spring.airport.domain.entity.Airplane;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

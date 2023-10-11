@@ -1,7 +1,10 @@
 package be.digitalcity.spring.airport.bl.service.impl;
 
 import be.digitalcity.spring.airport.bl.service.PersonService;
-import be.digitalcity.spring.airport.models.entity.Person;
+import be.digitalcity.spring.airport.domain.FidelityStatus;
+import be.digitalcity.spring.airport.domain.entity.Passenger;
+import be.digitalcity.spring.airport.domain.entity.Person;
+import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,6 +61,11 @@ public class PersonServiceMock implements PersonService {
         return personMap.values().stream()
                 .filter( e -> e.getFirstname().contains( search ) || e.getLastname().contains( search ) )
                 .toList();
+    }
+
+    @Override
+    public Page<Passenger> getPassengerByFidelity(FidelityStatus fidelity, int page) {
+        return null;
     }
 
 //    @Override

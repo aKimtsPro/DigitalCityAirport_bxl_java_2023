@@ -1,9 +1,9 @@
 package be.digitalcity.spring.airport.bl.service.impl;
 
 import be.digitalcity.spring.airport.bl.exceptions.*;
-import be.digitalcity.spring.airport.models.entity.Airplane;
-import be.digitalcity.spring.airport.models.entity.Flight;
-import be.digitalcity.spring.airport.models.entity.Pilot;
+import be.digitalcity.spring.airport.domain.entity.Airplane;
+import be.digitalcity.spring.airport.domain.entity.Flight;
+import be.digitalcity.spring.airport.domain.entity.Pilot;
 import be.digitalcity.spring.airport.dal.repository.AirplaneRepository;
 import be.digitalcity.spring.airport.dal.repository.FlightRepository;
 import be.digitalcity.spring.airport.dal.repository.PilotRepository;
@@ -11,6 +11,7 @@ import be.digitalcity.spring.airport.dal.repository.ReservationRepository;
 import be.digitalcity.spring.airport.bl.service.FlightService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -103,5 +104,28 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public List<Flight> getUserFlights(long userId, boolean seeCancelled) {
         return reservationRepository.getFlightsReservedBy(userId, seeCancelled);
+    }
+
+    @Override
+    public List<Flight> getAll(Double minPrice, Double maxPrice) {
+        return flightRepository.findByPrice(minPrice, maxPrice);
+    }
+
+    @Override
+    public List<Flight> getTodayFlights() {
+        LocalDate currentDate = LocalDate.now();
+        LocalDateTime startOfDay = currentDate.atStartOfDay();
+        LocalDateTime endOfDay = currentDate.atTime(23,59,59,999_999_999);
+        return flightRepository.findByDepartureBetween(startOfDay, endOfDay);
+    }
+
+    @Override
+    public List<Flight> getWithNewPlanes() {
+        return flightRepository.findByAirplaneNew();
+    }
+
+    @Override
+    public List<Flight> getWithPlaneExperienced() {
+        return flightRepository.findWithPlaneExperienced();
     }
 }
