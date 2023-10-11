@@ -1,6 +1,6 @@
-package be.digitalcity.spring.airport.models.form;
+package be.digitalcity.spring.airport.presentation.models.form;
 
-import be.digitalcity.spring.airport.validation.constraint.Even;
+import be.digitalcity.spring.airport.presentation.validation.constraint.Even;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 

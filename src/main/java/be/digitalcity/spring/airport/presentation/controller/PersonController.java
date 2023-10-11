@@ -1,8 +1,8 @@
 package be.digitalcity.spring.airport.presentation.controller;
 
-import be.digitalcity.spring.airport.models.dto.PersonDTO;
+import be.digitalcity.spring.airport.presentation.models.dto.PersonDTO;
 import be.digitalcity.spring.airport.models.entity.Person;
-import be.digitalcity.spring.airport.models.form.PersonForm;
+import be.digitalcity.spring.airport.presentation.models.form.PersonForm;
 import be.digitalcity.spring.airport.bl.service.PersonService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

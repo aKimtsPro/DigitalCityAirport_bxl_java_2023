@@ -1,11 +1,8 @@
 package be.digitalcity.spring.airport.dal.repository;
 
-import be.digitalcity.spring.airport.models.entity.FidelityStatus;
 import be.digitalcity.spring.airport.models.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

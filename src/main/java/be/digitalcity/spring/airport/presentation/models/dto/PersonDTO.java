@@ -1,6 +1,6 @@
-package be.digitalcity.spring.airport.models.dto;
+package be.digitalcity.spring.airport.presentation.models.dto;
 
-import be.digitalcity.spring.airport.models.entity.FidelityStatus;
+import be.digitalcity.spring.airport.models.FidelityStatus;
 import be.digitalcity.spring.airport.models.entity.Person;
 import lombok.Builder;
 import lombok.Data;

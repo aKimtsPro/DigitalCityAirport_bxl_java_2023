@@ -1,6 +1,6 @@
-package be.digitalcity.spring.airport.validation.constraint;
+package be.digitalcity.spring.airport.presentation.validation.constraint;
 
-import be.digitalcity.spring.airport.validation.validator.IsBeforeValidator;
+import be.digitalcity.spring.airport.presentation.validation.validator.EvenValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
@@ -9,17 +9,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.TYPE})
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {IsBeforeValidator.class})
-public @interface IsBefore {
+@Constraint(validatedBy = EvenValidator.class) // TODO modify
+public @interface Even {
 
-    String message() default "a date should be before the other";
+    String message() default "number should be even";
 
     Class<?>[] groups() default { };
 
     Class<? extends Payload>[] payload() default { };
 
-    String beforeField();
-    String afterField();
 }

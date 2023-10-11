@@ -1,8 +1,8 @@
 package be.digitalcity.spring.airport.presentation.controller;
 
-import be.digitalcity.spring.airport.models.dto.ReservationDTO;
+import be.digitalcity.spring.airport.presentation.models.dto.ReservationDTO;
 import be.digitalcity.spring.airport.models.entity.Reservation;
-import be.digitalcity.spring.airport.models.form.ReservationForm;
+import be.digitalcity.spring.airport.presentation.models.form.ReservationForm;
 import be.digitalcity.spring.airport.bl.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

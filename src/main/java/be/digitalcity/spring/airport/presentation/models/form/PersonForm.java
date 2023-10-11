@@ -1,10 +1,9 @@
-package be.digitalcity.spring.airport.models.form;
+package be.digitalcity.spring.airport.presentation.models.form;
 
-import be.digitalcity.spring.airport.models.entity.FidelityStatus;
+import be.digitalcity.spring.airport.models.FidelityStatus;
 import be.digitalcity.spring.airport.models.entity.Person;
-import be.digitalcity.spring.airport.validation.constraint.StartsWithMaj;
+import be.digitalcity.spring.airport.presentation.validation.constraint.StartsWithMaj;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 

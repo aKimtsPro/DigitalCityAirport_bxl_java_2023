@@ -1,4 +1,4 @@
-package be.digitalcity.spring.airport.models.entity;
+package be.digitalcity.spring.airport.models;
 
 public enum FidelityStatus {
     NONE,

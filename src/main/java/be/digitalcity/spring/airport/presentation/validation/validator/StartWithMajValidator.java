@@ -1,6 +1,6 @@
-package be.digitalcity.spring.airport.validation.validator;
+package be.digitalcity.spring.airport.presentation.validation.validator;
 
-import be.digitalcity.spring.airport.validation.constraint.StartsWithMaj;
+import be.digitalcity.spring.airport.presentation.validation.constraint.StartsWithMaj;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

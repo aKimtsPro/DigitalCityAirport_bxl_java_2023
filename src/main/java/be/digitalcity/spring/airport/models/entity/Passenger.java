@@ -1,5 +1,6 @@
 package be.digitalcity.spring.airport.models.entity;
 
+import be.digitalcity.spring.airport.models.FidelityStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,9 +1,9 @@
 package be.digitalcity.spring.airport.presentation.controller;
 
 import be.digitalcity.spring.airport.bl.exceptions.ResourceNotFoundException;
-import be.digitalcity.spring.airport.models.dto.FlightDTO;
+import be.digitalcity.spring.airport.presentation.models.dto.FlightDTO;
 import be.digitalcity.spring.airport.models.entity.Flight;
-import be.digitalcity.spring.airport.models.form.FlightCreateForm;
+import be.digitalcity.spring.airport.presentation.models.form.FlightCreateForm;
 import be.digitalcity.spring.airport.bl.service.AirplaneService;
 import be.digitalcity.spring.airport.bl.service.AirportService;
 import be.digitalcity.spring.airport.bl.service.FlightService;

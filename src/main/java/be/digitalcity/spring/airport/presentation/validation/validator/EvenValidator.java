@@ -1,6 +1,6 @@
-package be.digitalcity.spring.airport.validation.validator;
+package be.digitalcity.spring.airport.presentation.validation.validator;
 
-import be.digitalcity.spring.airport.validation.constraint.Even;
+import be.digitalcity.spring.airport.presentation.validation.constraint.Even;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

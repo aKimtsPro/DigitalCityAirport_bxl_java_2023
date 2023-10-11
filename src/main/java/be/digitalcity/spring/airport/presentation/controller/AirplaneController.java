@@ -1,7 +1,7 @@
 package be.digitalcity.spring.airport.presentation.controller;
 
 import be.digitalcity.spring.airport.bl.service.AirplaneService;
-import be.digitalcity.spring.airport.models.dto.AirplaneDTO;
+import be.digitalcity.spring.airport.presentation.models.dto.AirplaneDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

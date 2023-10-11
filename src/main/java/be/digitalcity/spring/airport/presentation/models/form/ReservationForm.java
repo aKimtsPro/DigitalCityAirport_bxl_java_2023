@@ -1,4 +1,4 @@
-package be.digitalcity.spring.airport.models.form;
+package be.digitalcity.spring.airport.presentation.models.form;
 
 import lombok.Data;
 

@@ -2,7 +2,7 @@ package be.digitalcity.spring.airport.presentation.controller;
 
 import be.digitalcity.spring.airport.models.entity.Person;
 import be.digitalcity.spring.airport.bl.service.impl.HelloService;
-import be.digitalcity.spring.airport.models.form.DemoForm;
+import be.digitalcity.spring.airport.presentation.models.form.DemoForm;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;

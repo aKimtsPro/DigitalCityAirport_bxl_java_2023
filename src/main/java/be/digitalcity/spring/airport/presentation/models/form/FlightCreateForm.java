@@ -1,7 +1,7 @@
-package be.digitalcity.spring.airport.models.form;
+package be.digitalcity.spring.airport.presentation.models.form;
 
 import be.digitalcity.spring.airport.models.entity.Flight;
-import be.digitalcity.spring.airport.validation.constraint.IsBefore;
+import be.digitalcity.spring.airport.presentation.validation.constraint.IsBefore;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
