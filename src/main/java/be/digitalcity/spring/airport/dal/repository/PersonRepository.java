@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
@@ -27,5 +28,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 //        WHERE p.id = :id
 //    """)
 //    void updateFidelity(long id, FidelityStatus fidelity);
+
+    Optional<Person> findByUsername(String username);
 
 }

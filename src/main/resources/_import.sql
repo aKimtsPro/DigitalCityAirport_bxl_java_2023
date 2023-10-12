@@ -113,23 +113,6 @@ INSERT INTO person (person_firstname, person_lastname) VALUES ('Sarah', 'Green')
 INSERT INTO person (person_firstname, person_lastname) VALUES ('Joseph', 'Baker');
 INSERT INTO person (person_firstname, person_lastname) VALUES ('Rebecca', 'Walker');
 INSERT INTO person (person_firstname, person_lastname) VALUES ('James', 'Nelson');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Linda', 'King');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('William', 'Hill');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Jennifer', 'Scott');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Robert', 'Allen');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Nancy', 'Lewis');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Matthew', 'Smith');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Susan', 'Clark');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Andrew', 'Jones');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Jessica', 'Young');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('David', 'Perez');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Sarah', 'Martin');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Michael', 'Davis');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Emily', 'Anderson');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('John', 'Smith');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Jane', 'Johnson');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Michael', 'Brown');
-INSERT INTO person (person_firstname, person_lastname) VALUES ('Emily', 'Davis');
 
 -- Insert 20 passengers with unique person_ids and passenger_fidelity values
 INSERT INTO passenger (person_id, passenger_fidelity) VALUES (1, 'NONE');

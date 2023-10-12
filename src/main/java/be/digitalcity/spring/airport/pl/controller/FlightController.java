@@ -11,6 +11,7 @@ import be.digitalcity.spring.airport.bl.service.PilotService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,6 +41,7 @@ public class FlightController {
     }
 
     @GetMapping("/by_user")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<List<FlightDTO>> getUserFlights(long userId, boolean seeCancelled){
         return ResponseEntity.ok(
                 flightService.getUserFlights(userId, seeCancelled).stream()
@@ -51,6 +53,7 @@ public class FlightController {
 
     // POST - http://localhost:8080/flight
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<FlightDTO> create(@Valid @RequestBody FlightCreateForm form){
 
         Flight flight = form.toEntity();

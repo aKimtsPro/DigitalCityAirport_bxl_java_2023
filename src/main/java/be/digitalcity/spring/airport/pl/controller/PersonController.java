@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class PersonController {
     // http://localhost:8080/person/all
     // http://localhost:8080/person/all?containing=truc
     @GetMapping(path = {"", "/all"}/*, params = "containing"*/)
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<List<PersonDTO>> getAll(@RequestParam(required = false) String containing){
         List<Person> personList;
 

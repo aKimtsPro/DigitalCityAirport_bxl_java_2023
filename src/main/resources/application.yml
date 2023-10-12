@@ -11,10 +11,18 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  sql:
-    init:
-      schema-locations: classpath:import.sql
-      mode: embedded
+#  sql:
+#    init:
+#      schema-locations: classpath:_import.sql
+#      mode: embedded
+
+#  security:
+#    user:
+#      name: admin
+#      password: pass
+#      roles:
+#        - ADMIN
+#        - USER
 
 springdoc:
   swagger-ui:
