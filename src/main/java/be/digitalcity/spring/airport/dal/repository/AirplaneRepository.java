@@ -29,4 +29,16 @@ public interface AirplaneRepository extends JpaRepository<Airplane, Long> {
     )
     List<Airplane> findAllBySerialNumberStarts(@Param("start") String startsWith);
 
+
+    @Query("""
+        SELECT a
+        FROM Airplane a
+        WHERE (
+            SELECT COUNT(flight)
+            FROM Flight flight
+            WHERE flight.airplane.id = a.id AND
+                flight.arrival < current_date
+        ) >= 10
+    """)
+    List<Airplane> findWithPlaneExperienced();
 }

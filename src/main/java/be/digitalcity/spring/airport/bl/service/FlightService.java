@@ -17,5 +17,4 @@ public interface FlightService {
     List<Flight> getAll(Double minPrice, Double maxPrice);
     List<Flight> getTodayFlights();
     List<Flight> getWithNewPlanes();
-    List<Flight> getWithPlaneExperienced();
 }

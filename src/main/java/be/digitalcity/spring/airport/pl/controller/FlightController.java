@@ -109,14 +109,6 @@ public class FlightController {
         );
     }
 
-    @GetMapping("/experienced_planes")
-    public ResponseEntity<List<FlightDTO>> findByPlaneExperienced(){
-        return ResponseEntity.ok(
-                flightService.getWithPlaneExperienced().stream()
-                        .map( FlightDTO::toDTO )
-                        .toList()
-        );
-    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResourceNotFound(ResourceNotFoundException ex){

@@ -8,4 +8,6 @@ public interface AirplaneService {
     Airplane getOne(Long id);
 
     List<Airplane> getWithSerialNumberStarts(String start);
+
+    List<Airplane> getExperienced();
 }

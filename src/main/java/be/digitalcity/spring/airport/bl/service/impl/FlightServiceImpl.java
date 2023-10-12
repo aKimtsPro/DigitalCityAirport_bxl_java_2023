@@ -124,8 +124,4 @@ public class FlightServiceImpl implements FlightService {
         return flightRepository.findByAirplaneNew();
     }
 
-    @Override
-    public List<Flight> getWithPlaneExperienced() {
-        return flightRepository.findWithPlaneExperienced();
-    }
 }

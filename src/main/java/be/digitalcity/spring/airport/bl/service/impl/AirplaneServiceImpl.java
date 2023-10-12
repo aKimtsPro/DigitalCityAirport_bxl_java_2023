@@ -27,4 +27,9 @@ public class AirplaneServiceImpl implements AirplaneService {
     public List<Airplane> getWithSerialNumberStarts(String start) {
         return airplaneRepository.findAllBySerialNumberStarts(start);
     }
+
+    @Override
+    public List<Airplane> getExperienced() {
+        return airplaneRepository.findWithPlaneExperienced();
+    }
 }

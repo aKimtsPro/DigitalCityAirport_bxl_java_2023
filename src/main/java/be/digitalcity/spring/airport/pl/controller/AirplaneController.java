@@ -29,4 +29,13 @@ public class AirplaneController {
         );
     }
 
+    @GetMapping("/experienced")
+    public ResponseEntity<List<AirplaneDTO>> getExperienced(){
+        return ResponseEntity.ok(
+                airplaneService.getExperienced().stream()
+                        .map( AirplaneDTO::toDTO )
+                        .toList()
+        );
+    }
+
 }
