@@ -34,14 +34,14 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Reservation create(long flightId, long passengerId) {
+    public Reservation create(long flightId, String userName) {
 
-        if( reservationRepository.existsByPassenger_IdAndReservedFlight_Id(passengerId, flightId) )
+        if( reservationRepository.existsByPassenger_UsernameAndReservedFlight_Id(userName, flightId) )
             throw new IllegalArgumentException(); // TODO specify
 
         Reservation reservation = new Reservation();
-        Passenger passenger = passengerRepository.findById(passengerId)
-                .orElseThrow(() -> new ResourceNotFoundException(Passenger.class, passengerId));
+        Passenger passenger = passengerRepository.findByUsername(userName)
+                .orElseThrow(() -> new ResourceNotFoundException(Passenger.class, userName));
 
         Flight flight = flightRepository.findById(flightId)
                 .orElseThrow( () -> new ResourceNotFoundException(Flight.class, flightId) );

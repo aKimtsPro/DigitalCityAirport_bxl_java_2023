@@ -41,7 +41,7 @@ public class FlightController {
     }
 
     @GetMapping("/by_user")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<FlightDTO>> getUserFlights(long userId, boolean seeCancelled){
         return ResponseEntity.ok(
                 flightService.getUserFlights(userId, seeCancelled).stream()
@@ -69,6 +69,7 @@ public class FlightController {
     }
 
     @PatchMapping("/{id:^[0-9]+$}/pilot")
+//    @PreAuthorize("hasRole('ADMIN') or hasAuthority('FLIGHT_MODIFIER')")
     public ResponseEntity<?> updatePilot(@PathVariable long id, @RequestParam long pilotId){
         flightService.updatePilot(id, pilotId);
         return ResponseEntity.noContent()

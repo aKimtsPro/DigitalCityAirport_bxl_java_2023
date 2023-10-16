@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Optional;
+
 public interface PassengerRepository extends JpaRepository<Passenger, Long> {
 
     @Query(
@@ -17,5 +19,7 @@ public interface PassengerRepository extends JpaRepository<Passenger, Long> {
         """
     )
     Page<Passenger> findByStatus(FidelityStatus status, Pageable pageable);
+
+    Optional<Passenger> findByUsername(String username);
 
 }

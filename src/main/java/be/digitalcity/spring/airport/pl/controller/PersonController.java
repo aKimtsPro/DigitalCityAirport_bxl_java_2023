@@ -4,7 +4,6 @@ import be.digitalcity.spring.airport.domain.FidelityStatus;
 import be.digitalcity.spring.airport.pl.models.dto.PassengerDTO;
 import be.digitalcity.spring.airport.pl.models.dto.PersonDTO;
 import be.digitalcity.spring.airport.domain.entity.Person;
-import be.digitalcity.spring.airport.pl.models.dto.ReservationDTO;
 import be.digitalcity.spring.airport.pl.models.form.PersonForm;
 import be.digitalcity.spring.airport.bl.service.PersonService;
 import jakarta.validation.Valid;
@@ -30,7 +29,7 @@ public class PersonController {
     // http://localhost:8080/person/all
     // http://localhost:8080/person/all?containing=truc
     @GetMapping(path = {"", "/all"}/*, params = "containing"*/)
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('USER') and hasRole('ADMIN')")
     public ResponseEntity<List<PersonDTO>> getAll(@RequestParam(required = false) String containing){
         List<Person> personList;
 

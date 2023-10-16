@@ -5,6 +5,8 @@ import be.digitalcity.spring.airport.domain.entity.Reservation;
 import be.digitalcity.spring.airport.pl.models.form.ReservationForm;
 import be.digitalcity.spring.airport.bl.service.ReservationService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,8 +25,10 @@ public class ReservationController {
     }
 
     @PostMapping
-    public ResponseEntity<ReservationDTO> create(@RequestBody ReservationForm form){
-        Reservation reservation = reservationService.create(form.getFlightId(), form.getPassengerId());
+    @PreAuthorize("hasRole('PASSENGER')")
+    public ResponseEntity<ReservationDTO> create(Authentication auth, @RequestParam long flightId){
+        String username = auth.getName();
+        Reservation reservation = reservationService.create(flightId, username);
         return ResponseEntity.ok( ReservationDTO.toDTO( reservation ) );
     }
 

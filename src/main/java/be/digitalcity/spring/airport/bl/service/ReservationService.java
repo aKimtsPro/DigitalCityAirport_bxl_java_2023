@@ -6,7 +6,7 @@ public interface ReservationService {
 
     Reservation getOne(long id);
 
-    Reservation create(long flightId, long passengerId);
+    Reservation create(long flightId, String userName);
 
     void cancel(long id);
 

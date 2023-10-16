@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
-    boolean existsByPassenger_IdAndReservedFlight_Id(long passengerId, long flightId);
+    boolean existsByPassenger_UsernameAndReservedFlight_Id(String username, long flightId);
 
     // TODO fix
     @Query(""" 

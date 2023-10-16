@@ -7,7 +7,6 @@ import be.digitalcity.spring.airport.domain.FidelityStatus;
 import be.digitalcity.spring.airport.domain.entity.Passenger;
 import be.digitalcity.spring.airport.domain.entity.Person;
 import be.digitalcity.spring.airport.dal.repository.PersonRepository;
-import be.digitalcity.spring.airport.domain.entity.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -36,7 +36,7 @@ public class Person implements UserDetails {
     @Column(name = "person_active", nullable = false)
     private boolean enabled = true;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id", nullable = false),
