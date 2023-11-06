@@ -59,6 +59,7 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**"
                         ).permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/flight/**").authenticated()
                         .requestMatchers(HttpMethod.PATCH, "/flight/**").hasAnyAuthority("ROLE_ADMIN", "FLIGHT_MODIFIER")

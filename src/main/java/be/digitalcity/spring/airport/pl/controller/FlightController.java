@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/flight")
 public class FlightController {
@@ -83,7 +84,7 @@ public class FlightController {
                 .build();
     }
 
-    @GetMapping("/price")
+    @GetMapping
     public ResponseEntity<List<FlightDTO>> findAll(
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice
